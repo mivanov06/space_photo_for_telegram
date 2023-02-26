@@ -1,9 +1,6 @@
 import os
-import urllib
-from urllib.parse import urlparse
-from pathlib import Path
-from datetime import datetime
-import pprint as pp
+import telegram
+
 
 import requests
 from dotenv import load_dotenv
@@ -11,5 +8,8 @@ from dotenv import load_dotenv
 
 if __name__ == "__main__":
     load_dotenv()
-    token = os.getenv('NASA_TOKEN')
-    folder = 'images'
+    nasa_token = os.getenv('NASA_TOKEN')
+    telegram_token = os.getenv('TELEGRAM_BOT_TOKEN')
+    bot = telegram.Bot(telegram_token)
+    print(bot.get_me())
+    bot.send_message(chat_id='-1001680271761', text='First message')
