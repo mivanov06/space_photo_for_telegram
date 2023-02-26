@@ -14,7 +14,6 @@ def download_image(url, folder, token, prefix_name=''):
     a = urlparse(url)
     filename = os.path.basename(a.path)
     Path(folder).mkdir(parents=True, exist_ok=True)
-    print(filename)
     with open(f'{folder}/{prefix_name}_{filename}', 'wb') as file:
         file.write(response.content)
 

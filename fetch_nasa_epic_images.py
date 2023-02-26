@@ -20,7 +20,6 @@ def epic_photo(token):
         photo_date = datetime.fromisoformat(link["date"]).strftime("%Y/%m/%d")
         links.append(f'https://api.nasa.gov/EPIC/archive/natural/{photo_date}/png/{photo_name}.png')
         image_link = f'https://api.nasa.gov/EPIC/archive/natural/{photo_date}/png/{photo_name}.png'
-        print(f'https://api.nasa.gov/EPIC/archive/natural/{photo_date}/png/{photo_name}.png')
         download_image(image_link, folder, token, prefix_name='nasa')
     return links
 

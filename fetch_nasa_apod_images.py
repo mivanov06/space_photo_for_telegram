@@ -18,7 +18,6 @@ def nasa_apod_photo(token):
         if res['media_type'] == 'image':
             image_link = res['hdurl']
             download_image(image_link, folder, token, prefix_name='nasa_apod')
-            print(f'{number} - {image_link}')
     return
 
 
