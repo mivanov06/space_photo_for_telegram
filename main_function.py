@@ -1,5 +1,4 @@
 import os
-import urllib
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -19,8 +18,3 @@ def download_image(url, folder, token, prefix_name=''):
     with open(f'{folder}/{prefix_name}_{filename}', 'wb') as file:
         file.write(response.content)
 
-
-def get_img_extension(url):
-    img_path = urllib.parse.urlsplit(url).path
-    _, img_extension = os.path.splitext(img_path)
-    return img_extension

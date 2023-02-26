@@ -1,5 +1,4 @@
 import os
-
 import requests
 from dotenv import load_dotenv
 
@@ -10,7 +9,7 @@ def nasa_apod_photo(token):
     api_url = 'https://api.nasa.gov/planetary/apod'
     params = {
         'api_key': token,
-        'count': 15
+        'count': 35
     }
     folder = 'images'
     response = requests.get(api_url, params=params)

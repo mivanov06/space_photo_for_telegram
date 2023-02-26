@@ -1,5 +1,7 @@
+import argparse
 import os
 import random
+import time
 
 import telegram
 
@@ -19,4 +21,11 @@ if __name__ == "__main__":
     chat_id = os.getenv('TELEGRAM_CHAT_ID')
     bot = telegram.Bot(telegram_token)
     folder = 'images'
-    bot.send_photo(chat_id=chat_id, photo=open(f'{folder}/{get_random_image(folder)}', 'rb'))
+    parser = argparse.ArgumentParser(description='script for publishing photos in telegram channel')
+    parser.add_argument('-d', '--delay', default=14400, type=int,
+                        help='frequency of sending photos (in seconds)')
+    args = parser.parse_args()
+    delay = args.delay
+    while True:
+        bot.send_photo(chat_id=chat_id, photo=open(f'{folder}/{get_random_image(folder)}', 'rb'))
+        time.sleep(delay)
