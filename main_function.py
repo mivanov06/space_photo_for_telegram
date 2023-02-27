@@ -5,7 +5,7 @@ from urllib.parse import urlparse
 import requests
 
 
-def download_image(url, folder, token, prefix_name=''):
+def download_image(url, folder, token=None, prefix_name=''):
     params = {
         'api_key': token
     }
