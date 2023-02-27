@@ -9,9 +9,7 @@ from dotenv import load_dotenv
 
 
 def get_random_image(folder):
-    files = os.walk(folder)
-    for root, dirs, files in files:
-        ...
+    files = os.listdir(folder)
     return random.choice(files)
 
 
@@ -27,5 +25,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     delay = args.delay
     while True:
-        bot.send_photo(chat_id=chat_id, photo=open(f'{folder}/{get_random_image(folder)}', 'rb'))
+        image = get_random_image(folder)
+        with open(f'{folder}/{image}', 'rb') as file:
+            bot.send_photo(chat_id=chat_id, photo=file)
         time.sleep(delay)
