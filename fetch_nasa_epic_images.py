@@ -14,14 +14,12 @@ def epic_photo(token):
     folder = 'images'
     response = requests.get(api_url, params=params)
     response.raise_for_status()
-    links = list()
     for link in response.json():
         photo_name = link["image"]
         photo_date = datetime.fromisoformat(link["date"]).strftime("%Y/%m/%d")
-        links.append(f'https://api.nasa.gov/EPIC/archive/natural/{photo_date}/png/{photo_name}.png')
         image_link = f'https://api.nasa.gov/EPIC/archive/natural/{photo_date}/png/{photo_name}.png'
         download_image(image_link, folder, token, prefix_name='nasa')
-    return links
+    return
 
 
 if __name__ == "__main__":
