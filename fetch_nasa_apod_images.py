@@ -7,10 +7,10 @@ from main_function import download_image
 
 def nasa_apod_photo(token):
     api_url = 'https://api.nasa.gov/planetary/apod'
-    COUNT_IMAGES = 35
+    images_count = 35
     params = {
         'api_key': token,
-        'count': COUNT_IMAGES
+        'count': images_count
     }
     folder = 'images'
     response = requests.get(api_url, params=params)
